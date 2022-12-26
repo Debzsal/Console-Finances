@@ -86,3 +86,9 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+let monthsOnly = [];
+for (let i = 0; i < finances.length; i++) {
+  monthsOnly.push([i][0]);
+}
+console.log(monthsOnly.length);
