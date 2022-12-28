@@ -89,6 +89,66 @@ var finances = [
 
 let monthsOnly = [];
 for (let i = 0; i < finances.length; i++) {
-  monthsOnly.push([i][0]);
+  monthsOnly.push(finances[i][0]);
 }
 console.log(monthsOnly.length);
+
+let numbersOnly = [];
+for (let i = 0; i < finances.length; i++) {
+    numbersOnly.push(finances[i][1]);
+}
+let sum = numbersOnly.reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+});
+
+console.log(sum);
+
+let changeInProfit = [];
+let previousAmount = 0
+for (let i = 0; i < numbersOnly.length; i++) {
+    //i = current index in the numbersOnly array 
+    // therefore numbersOnly[i] is the number at the current index in the numbersOnlyArray
+    let currentAmount = numbersOnly[i]
+
+    //calculate change in profit
+    let currentProfitChange = currentAmount - previousAmount;
+
+    //push change to array
+    changeInProfit.push(currentProfitChange);
+
+    //set previous amount to the current amount
+    previousAmount = currentAmount;
+}
+let total = changeInProfit.reduce(function (currentAmount) {
+    return currentAmount;
+});
+
+console.log(total)
+console.log(total/monthsOnly.length);
+
+
+
+
+// let numbersOnly = [];
+// let sum = numbersOnly.reduce(function(a))
+// function getSum(total, num) {
+//     return total + num;
+// }
+
+// 
+    
+// }
+// let sum = 0;
+// sum += numbersOnly[i];
+
+// console.log(sum);
+
+
+// //     numbersOnly.push([i][1])
+// // }
+// // const sum = numbersOnly.reduce((accumulator, currentValue) => {
+// //     return accumulator + currentValue;
+// // }, 0);
+
+// //
+
