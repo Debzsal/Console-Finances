@@ -104,11 +104,13 @@ let sum = numbersOnly.reduce(function (previousValue, currentValue) {
 console.log(sum);
 
 let changeInProfit = [];
-let previousAmount = 0
-for (let i = 0; i < numbersOnly.length; i++) {
+for (let i = 0; i < numbersOnly.length-1; i++) {
     //i = current index in the numbersOnly array 
     // therefore numbersOnly[i] is the number at the current index in the numbersOnlyArray
-    let currentAmount = numbersOnly[i]
+    // -1 because we're subtracting the previous month from the current month
+    let previousAmount = numbersOnly[i];
+    let currentAmount = numbersOnly[i + 1]
+    // +1 to go to the next element of the array
 
     //calculate change in profit
     let currentProfitChange = currentAmount - previousAmount;
@@ -117,14 +119,24 @@ for (let i = 0; i < numbersOnly.length; i++) {
     changeInProfit.push(currentProfitChange);
 
     //set previous amount to the current amount
-    previousAmount = currentAmount;
+    // previousAmount = currentAmount;
 }
-let total = changeInProfit.reduce(function (currentAmount) {
-    return currentAmount;
-});
 
-console.log(total)
-console.log(total/monthsOnly.length);
+console.log("aaaaa :",changeInProfit)
+// let totalAvg = 0
+// for(i=0;i<changeInProfit.length;i++){
+//     // console.log("previous :", totalAvg)
+//     // console.log("Sum totalAvg + changeInProfit[i] :", totalAvg + changeInProfit[i])
+//     totalAvg +=  changeInProfit[i]
+// }
+// console.log(totalAvg)
+let totalAvg = changeInProfit.reduce( (total, number) => {
+    return total+ number;
+},0);
+
+ console.log(totalAvg)
+
+console.log(totalAvg/85);
 
 
 
