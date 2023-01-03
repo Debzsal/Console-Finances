@@ -109,7 +109,7 @@ for (let i = 0; i < numbersOnly.length-1; i++) {
     // therefore numbersOnly[i] is the number at the current index in the numbersOnlyArray
     // -1 because we're subtracting the previous month from the current month
     let previousAmount = numbersOnly[i];
-    let currentAmount = numbersOnly[i + 1]
+    let currentAmount = numbersOnly[i + 1];
     // +1 to go to the next element of the array
 
     //calculate change in profit
@@ -134,33 +134,45 @@ let totalAvg = changeInProfit.reduce( (total, number) => {
     return total+ number;
 },0);
 
- console.log(totalAvg)
+ console.log(totalAvg);
 
 console.log(totalAvg/85);
 
+// const maxMonth = {
+//   monthName: '',
+//   profit: 0,
+// };
+
+// const minMonth = {
+//   monthName: '',
+//   profit: 0,
+// };
+
+// finances.forEach((month) => {
+//   if (month[1] > maxMonth.profit) {
+//     maxMonth.monthName = month[0];
+//     maxMonth.profit = month[1];
+//   }
+
+//   if (month[1] < minMonth.profit) {
+//     minMonth.monthName = month[0];
+//     minMonth.profit = month[1];
+//   }
+
+//   return { maxMonth, minMonth };
+// });
+
+// console.log('The month with max profit is : ', maxMonth);
+// console.log('The month with min profit is : ', minMonth);
 
 
+let increaseInProfits = changeInProfit.reduce( (acc, val ) => {
+  return acc >val ? acc : val;
+} );
 
-// let numbersOnly = [];
-// let sum = numbersOnly.reduce(function(a))
-// function getSum(total, num) {
-//     return total + num;
-// }
-
-// 
-    
-// }
-// let sum = 0;
-// sum += numbersOnly[i];
-
-// console.log(sum);
-
-
-// //     numbersOnly.push([i][1])
-// // }
-// // const sum = numbersOnly.reduce((accumulator, currentValue) => {
-// //     return accumulator + currentValue;
-// // }, 0);
-
-// //
+let decreaseInlosses = changeInProfit.reduce( (acc, val ) => {
+  return acc < val ? acc : val;
+} );
+console.log(increaseInProfits);
+console.log(decreaseInlosses);
 
